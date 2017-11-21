@@ -3,7 +3,7 @@ version: '2.2'
 services:
 
   geoserver:
-    image: rpassmore/geoserver:2.10.x
+    image: rpassmore/geoserver:make-it-day
     build:
       context: .
       args:
@@ -28,7 +28,7 @@ services:
       - DOCKER_HOST_IP
 
   data_dir_conf:
-    image: rpassmore/geoserver_data:2.10.x
+    image: rpassmore/geoserver_data:make-it-day
     container_name: geoserver_data_dir # named data container
     command: /bin/true
     volumes:
