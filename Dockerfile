@@ -1,4 +1,6 @@
-FROM tomcat:9-jre8
+#FROM tomcat:9-jre8
+FROM tomcat:9-jre8-alpine
+            
 MAINTAINER GeoNode Development Team
 
 #
