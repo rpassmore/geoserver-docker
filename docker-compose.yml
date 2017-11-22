@@ -4,8 +4,8 @@ services:
 
   geoserver:
     build: .
-    image: rpassmore/geoserver
-    container_name: rpassmore-geoserver
+    image: rpassmore/geoserver-docker:make-it-day
+    container_name: rpassmore-geoserver-docker
     
     ports:
       - "8080:8080"
