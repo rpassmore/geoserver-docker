@@ -6,11 +6,28 @@ services:
     build: .
     image: rpassmore/geoserver-docker:make-it-day
     container_name: rpassmore-geoserver-docker
-    
+
+#    links:
+#      - postgis
     ports:
       - "8080:8080"
     volumes:
-      #- /srv/docker/geoserver/geoserver:/geoserver_data/data
-      #- /var/run/docker.sock:/var/run/docker.sock
+      # Mount a specific folder on the host as the geoserver data folder
+      #- /home/rob/Documents/docker/geoserver/geoserver:/geoserver_data/data
+      
+      # Add a volume from the host to allow easy transfer of files
       - /home/rob/Documents:/host/files
-    
+      # Create a volume on the host machine to store the geoserver config,
+      # so that it is persisted between container restarts.
+      # volume location can be found by using :
+      # docker inspect -f "{{json .Mounts}}" rpassmore-geoserver-docker
+      - /geoserver_data/data
+ 
+#  postgis:
+#    image: kartoza/postgis
+#    ports:
+#      - "25432:5432"
+#    volumes:
+#      - /srv/docker/geoserver/postgis:/var/lib/postgresql
+#    #volumes_from:
+#      #- pgstore
