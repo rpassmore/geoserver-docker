@@ -17,6 +17,7 @@ services:
       
       # Add a volume from the host to allow easy transfer of files
       - /home/rob/Documents:/host/files
+      
       # Create a volume on the host machine to store the geoserver config,
       # so that it is persisted between container restarts.
       # volume location can be found by using :
