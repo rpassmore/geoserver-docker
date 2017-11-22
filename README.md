@@ -11,7 +11,7 @@
 
 * 8080: REST and Admin interface
 
-## Internal volumes:
+## External host volumes:
 
-* /opt/geoserver/data_dir: default application data directory
-* /opt/geoserver/data_dir/styles: styles (sld, xml, images) directory
+* /geoserver_data/data --> /opt/geoserver/data_dir: default application data directory
+* /geoserver_data/data/styles --> /opt/geoserver/data_dir/styles: styles (sld, xml, images) directory
