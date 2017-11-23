@@ -7,8 +7,8 @@ services:
     image: rpassmore/geoserver-docker:make-it-day
     container_name: rpassmore-geoserver-docker
 
-#    links:
-#      - postgis
+    links:
+      - postgis
     ports:
       - "8080:8080"
     volumes:
@@ -24,11 +24,12 @@ services:
       # docker inspect -f "{{json .Mounts}}" rpassmore-geoserver-docker
       - /geoserver_data/data
  
-#  postgis:
-#    image: kartoza/postgis
-#    ports:
-#      - "25432:5432"
-#    volumes:
-#      - /srv/docker/geoserver/postgis:/var/lib/postgresql
-#    #volumes_from:
-#      #- pgstore
+  postgis:
+    image: kartoza/postgis
+    ports:
+      - "25432:5432"
+    volumes:
+      # -/srv/docker/geoserver/postgis:/var/lib/postgresql
+      - /var/lib/postgresql
+    #volumes_from:
+      #- pgstore
